@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MobileAppSec" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/navy_blue</item>
+        <item name="colorPrimaryDark">@color/dark_navy_blue</item>
+        <item name="colorAccent">@color/gold</item>
+    </style>
+
+</resources>

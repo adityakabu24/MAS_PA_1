@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1076630054880",
+    "project_id": "mas1-b4d12",
+    "storage_bucket": "mas1-b4d12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076630054880:android:d5a582fd84a01cfb80ed85",
+        "android_client_info": {
+          "package_name": "com.example.mobileappsec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7NAX336zIyQOWBVQIRLoLP-JnOnQchlo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

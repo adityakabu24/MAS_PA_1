@@ -1,6 +1,7 @@
 package com.example.mobileappsec;
 
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -43,13 +44,27 @@ public class MainActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         FirebaseUser user = mAuth.getCurrentUser();
                         Toast.makeText(MainActivity.this, "Registration successful, welcome!", Toast.LENGTH_SHORT).show();
+                        // Hide the keyboard and clear input fields
+                        clearFieldsAndHideKeyboard();
                         updateUI(user);
                     } else {
                         Toast.makeText(MainActivity.this, "Registration failed, try again: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         updateUI(null);
                     }
                 });
+    }
 
+    // Method to hide the keyboard and clear the input fields
+    private void clearFieldsAndHideKeyboard() {
+        // Clear input fields
+        emailField.setText("");
+        passwordField.setText("");
+
+        // Hide the keyboard
+        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(emailField.getWindowToken(), 0);
+        }
     }
 
     private void loginUser() {

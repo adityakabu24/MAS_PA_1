@@ -1,5 +1,6 @@
 package com.example.mobileappsec;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,8 @@ import android.widget.TextView;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,6 +22,8 @@ public class HomeActivity extends AppCompatActivity {
     private TextView predictionTextView;
     private Button playAgainButton;
     private String userName;
+
+//    private Button signOutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +45,11 @@ public class HomeActivity extends AppCompatActivity {
         playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                predictionTextView.setText("Loading prediction...");
-                fetchNationalizeData(userName);
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
             }
         });
     }
